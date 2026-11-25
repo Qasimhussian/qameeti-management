@@ -1,0 +1,10 @@
+import mongoose from "mongoose";
+
+const schema = new mongoose.Schema({
+  adminId: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" },
+  action: { type: String, required: true },
+  description: { type: String, default: "" },
+  metadata: { type: mongoose.Schema.Types.Mixed, default: {} }
+}, { timestamps: true });
+
+export default mongoose.model("AuditLog", schema);
